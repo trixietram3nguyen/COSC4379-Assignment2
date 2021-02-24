@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Rotator : MonoBehaviour
 {
-    public GameObject model;
+    public List<GameObject> models;
     public Slider slider;
     private float previousValue;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class Rotator : MonoBehaviour
         float delta = value - previousValue;
         if(delta != previousValue)
         {
-            model.transform.Rotate(Vector3.right * delta * 360);
+            models.ForEach(model => model.transform.Rotate(Vector3.right * delta * 360));
         }
         previousValue = value;
     }
